@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pgtitle %}
+<title>Write a Review</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'writereview.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+<div class="d-flex flex-row mt-5" >
+
+<div class="container mt-5  frm">
+    <form action="writereview" method="POST" class="form-style-4">
+    {% csrf_token %}
+
+      <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" class="form-control" name="companyName" required>
+      </div>
+
+      <div class="form-group">
+        <label >Do you currently work here?</label>
+        <input type="text" class="form-control" name="currStat" required>
+      </div>
+
+      <div class="form-group">
+        <label>Job title</label>
+        <input type="text" class="form-control" name="jobTit" required>
+      </div>
+
+      <div class="form-group">
+        <label>Review Topic</label>
+        <input type="text" class="form-control" name="reviewTopic" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pros</label>
+        <textarea name="pros" cols="50" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Cons</label>
+        <textarea   name="cons" cols="50" required></textarea>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form><br>
+    {% for message in messages %}
+      <h3>{{ message }}</h3>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}

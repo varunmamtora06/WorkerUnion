@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pgtitle %}
+<title>All Reviews</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'review.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+
+{% for review in reviews %}
+
+<div class="container mt-3 review-block">
+    <h3>{{review.company}}</h3><p>By: {{review.person.first_name}} {{review.person.last_name}}</p>
+    
+    <h5>Review Topic: {{review.reviewHeadline}}</h5>
+    <h5>Currently Working here: {{review.currentStat}}</h5>
+    <h5>Job Title: {{review.jobtitle}}</h5> 
+    <h5>Pros: {{review.pros|linebreaks}}</h5> 
+    <h5>Cons: {{review.cons|linebreaks}}</h5> 
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pgtitle %}
+<title>My Reviews</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'review.css'%}">
+{% endblock pgcss %}
+
+{% block content %}
+    <div class="container">
+        <div class="d-flex flex-column flex-wrap">
+            <h2 class="text-center">My Reviews</h2> 
+             <!--this i wrote cuz if no reviews given by user it should say you dont have any reviews
+              and if not reviews is a way to check weather the list is empty this is how u check a 
+              list is empty or not in python lol.
+                                    -->
+            {% if not reviews %}
+            <h4>You dont have any review. <a href="writereview">Wanna write one?</a></h4>
+            
+            {% else %}
+            <h4>You have written: {{ reviews|length }} review{{reviews|pluralize}}</h4>
+            {% for review in reviews %}
+            <div class="container mt-3 review-block">
+            
+            <h4>Name of the Company:  {{ review.company }}</h4>
+            <h4>Work here currently:  {{ review.currentStat }}</h4>
+            <h4>Job title:  {{ review.jobtitle }}</h4>
+            <h4>Review Topic:  {{ review.reviewHeadline }}</h4>
+            <h4>Pros:  {{ review.pros|linebreaks }}</h4>
+            <h4>Cons:  {{ review.cons|linebreaks }}</h4>
+            <a href="{% url 'deleteReview' review.pk %}">
+                <div class="del">
+                    <p>Delete</p>
+                </div>
+            </a>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

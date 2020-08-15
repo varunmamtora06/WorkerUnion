@@ -1,0 +1,11 @@
+body{
+    background-image: url("static/Group3.png");
+}
+
+.confu-txt,.jobseek-txt{
+    background: rgb(218, 212, 212);
+    border-radius: 35px;
+    padding: 10px;
+    text-align: justify;
+    height: auto;
+}

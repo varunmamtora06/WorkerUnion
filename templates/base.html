@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pgtitle %}
+    {% endblock pgtitle %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block pgcss %}
+    {% endblock pgcss %}
+</head>
+<body style="background-image:url('static/Group3.png');">
+    
+{% comment %} navbar {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-light mynav">
+  <a class="navbar-brand" href="/" style="color: black; font-size:30px; font-weight:bold;">WorkerUnion</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+        <h5 class="pt-2">Hello, {{ user.first_name }}</h5>
+        <a class="nav-item nav-link" href="logout">Logout</a>
+        {% comment %} <a class="nav-item nav-link" href="mydashboard">My DashBoard</a> {% endcomment %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" style="color: black;" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My DashBoard</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="showreview">My Review</a>
+          <a class="dropdown-item" href="showblog">My Blogs</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="writereview">Write a review</a>
+          <a class="dropdown-item" href="writeblog">Write a blog</a>
+        </div>
+      </li>
+      {% else %}
+
+      <a class="nav-item nav-link" href="login">Login</a>
+      <a class="nav-item nav-link" href="register">Register</a>
+      {% endif %}
+      <a class="nav-item nav-link" href="blogs">Blogs</a>
+      <a class="nav-item nav-link" href="allReviews">Company Reviews</a>
+    </div>
+  </div>
+</nav>
+{% comment %} navbar {% endcomment %}
+
+{% block content %}
+
+{% endblock content %}
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pgtitle %}
+<title>Home Page</title>
+{% endblock pgtitle %}
+
+{% block pgcss %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+{% endblock pgcss %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="heading text-center">
+        <h1>How WorkerUnion works for you?</h1>
+    </div>
+</div>
+
+<div class="container-fluid text-center">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div class="confu-txt" style="width:550px;height:250px;">
+            <h3 style="font-size:40px;">Are you a professional who is looking for a platform to review a company?</h3>
+        </div>
+        <div class="confu">
+            <img src="{% static 'confused.png' %}" alt="" style="width:250px;height:250px;">
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="heading text-center">
+        <h1>Well, the search is over, this is the right place to drop your review!!</h1>
+    </div>
+</div>
+
+<div class="container-fluid mt-5 text-center">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div class="jobseek">
+            <img src="{% static 'job-seeker.png' %}" alt="" style="width:250px;height:250px;margin-right:60px;">
+        </div>
+        <div class="jobseek-txt" style="width:550px;height:250px;">
+            <h3 style="font-size:40px;">Your reviews and blogs will help other job seekers to get an idea about the environment of the company.</h3>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+.review-block{
+    background: #5C7FD3;
+    text-align: justify;
+    border-radius: 20px;
+    padding-left: 20px;
+    color: white;
+}
+
+.del{
+    text-align: center;
+    color: white;
+    background: red;
+    width: 80px;
+    height: 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+.del>p{
+    padding-top: 5px;
+}
+
+a:hover{
+    text-decoration: none;
+}
