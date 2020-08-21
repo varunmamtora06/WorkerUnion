@@ -23,7 +23,7 @@ urlpatterns = [
     path('editBlog/<int:pk>',views.editBlog,name='editBlog'),
     #REST-IMplementation
     path('blogList',views.blogList,name='blogList'),
-    # path('userList',views.userList,name='userList'),
+    path('userList',views.userList,name='userList'),
 
     # path('blogList',views.BlogCreateGeneric.as_view(),name='blogList'),
 

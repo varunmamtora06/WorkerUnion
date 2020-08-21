@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import auth, User
 #for some weird reason vscode shows error for above eventhoght issa correct
-#so to avoid that you could write from django.contrib.auth import User and..
+#so to avoid that you could write from django.contrib.auth import models and..
 #for the bottom code implementation you have to write models.User instead of just writing User
 
 
@@ -199,11 +199,11 @@ def blogList(request):
     serializer = BlogSerializer(blogs, many=True)
     return Response(serializer.data)
 
-# @api_view(['GET'])
-# def userList(request):
-#     users = User.objects.all()
-#     serializer = UserSerializer(users, many=True)
-#     return Response(serializer.data)
+@api_view(['GET'])
+def userList(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
 
 
 

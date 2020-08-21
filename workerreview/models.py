@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 #for some weird reason vscode shows error for above eventhoght issa correct
-#so to avoid that you could write from django.contrib.auth import User and..
+#so to avoid that you could write from django.contrib.auth import models and..
 #for the bottom code implementation you have to write models.User instead of just writing User
 from datetime import date
 
