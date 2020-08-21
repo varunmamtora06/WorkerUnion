@@ -246,3 +246,11 @@ class BlogCreateGeneric(generics.ListCreateAPIView):
 class BlogsListGeneric(generics.RetrieveUpdateDestroyAPIView):
     queryset = blog.objects.all()
     serializer_class = BlogSerializer
+
+
+class CreateUserApi(APIView):
+
+    def post(self,request):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
