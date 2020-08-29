@@ -27,15 +27,20 @@ urlpatterns = [
 
     # path('blogList',views.BlogCreateGeneric.as_view(),name='blogList'),
 
-    path('api-auth-token', obtain_auth_token, name='api_auth_token'), 
-    path('homeview',views.HelloView.as_view(),name='homeview'),
+    # path('api-auth-token', obtain_auth_token, name='api_auth_token'), 
+    # path('homeview',views.HelloView.as_view(),name='homeview'),
 
     path('BlogCreateGeneric',views.BlogCreateGeneric.as_view()),
     path('blogslistgeneric/<int:pk>',views.BlogsListGeneric.as_view()),
 
+    
+    path('api-login',views.LoginView.as_view()),
+    path('api-logout',views.LogOutView.as_view()),
+    path('api-register',views.RegisterView.as_view()),
+
 ]
 urlpatterns += [
-    path('api-token-auth', views.CustomAuthToken.as_view())
+    # path('api-token-auth', views.CustomAuthToken.as_view())
 ]
 urlpatterns += static(settings.STATIC_URL)
 
